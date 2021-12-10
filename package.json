@@ -5,15 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
-    "build": "webpack",
+    "start": "nodemon server",
+    "build": "webpack --watch",
     "start:dev": "npm run build & npm run start"
   },
   "author": "Alexandra Marks",
   "license": "ISC",
   "dependencies": {
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.2.1",
     "@mui/material": "^5.2.2",
+    "@mui/styles": "^5.2.2",
     "express": "^4.17.1",
+    "history": "^5.1.0",
     "morgan": "^1.10.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
