@@ -1,14 +1,13 @@
-# My Portfolio
+# Slazz
 
-A portfolio that I designed and developed to showcase me and my projects.
-
-See the deployed site [here](https://www.alexandravmarks.com)
+A website that I designed and developed for Heather Rigg, dance teacher and creator of #slazz.
 
 ## Sections
 
 - About
-- Projects
-- Contact
+- Schedule
+- Store
+- Archive
 
 ## Tech Stack
 
@@ -16,4 +15,4 @@ See the deployed site [here](https://www.alexandravmarks.com)
 - Express
 - Node.js
 - Webpack
-- React Bootstrap
+- Material UI
