@@ -43,7 +43,7 @@ export const authenticateSignUp = (email, firstName, lastName, password) => {
   };
 };
 
-export const updateUser = (email, firstName, lastName) => {
+export const updateUserThunk = (email, firstName, lastName) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.put("/auth/updateUser", {
