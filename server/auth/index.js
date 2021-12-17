@@ -54,8 +54,8 @@ router.get("/logout", async (req, res, next) => {
 
 router.put("/updateUser", tokenMiddleware, async (req, res, next) => {
   try {
-    const { firstName, lastName, email } = req.body;
-    const updatedUser = await req.user.update({ firstName, lastName, email });
+    const { email, firstName, lastName } = req.body;
+    const updatedUser = await req.user.update({ email, firstName, lastName });
     res.send(updatedUser);
   } catch (error) {
     next(error);
