@@ -1,14 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import Form from "./components/Form";
 
 const Navigation = () => {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Form />} />
+    </Routes>
   );
 };
 

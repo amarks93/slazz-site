@@ -4,3 +4,4 @@ package-lock.json
 public/bundle.js
 public/bundle.js.map
 .env
+images-raw

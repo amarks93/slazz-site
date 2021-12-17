@@ -13,15 +13,21 @@ const theme = createTheme({
       dark: "#D81B60",
     },
     secondary: {
-      main: "#000000",
+      main: "#212121",
+      light: "#424242",
+      dark: "#000000",
     },
     text: {
-      primary: "#EC407A",
+      primary: "#212121",
+      secondary: "#EC407A",
+    },
+    background: {
+      paper: "#f7f8fa",
     },
   },
-  typography: {
-    fontFamily: ["Arial"].join(","),
-  },
+  // typography: {
+  //   fontFamily: ["Arial"].join(","),
+  // },
 });
 
 ReactDOM.render(
