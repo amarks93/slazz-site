@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 
-const Login = () => {
+const Login = (props) => {
+  const setHasAccount = props.setHasAccount;
   return (
     <Box className="flex-start-col" sx={{ p: 2, width: "100%" }}>
       <Box sx={{ width: "100%", my: 1 }}>
@@ -27,9 +28,16 @@ const Login = () => {
         <Button sx={{ width: "100%", my: 1 }} variant="contained" size="large">
           Sign in
         </Button>
-        <Typography className="center" color="primary" variant="subtitle2">
+        <Button
+          onClick={() => setHasAccount(false)}
+          sx={{
+            textTransform: "none",
+            width: "100%",
+          }}
+          className="center hover-link"
+        >
           New to #slazz? Create an account.
-        </Typography>
+        </Button>
       </Box>
     </Box>
   );

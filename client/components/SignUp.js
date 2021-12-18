@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 
-const SignUp = () => {
+const SignUp = (props) => {
+  const setHasAccount = props.setHasAccount;
   return (
     <Box className="flex-start-col" sx={{ p: 2, width: "100%" }}>
       <Box sx={{ width: "100%", my: 1 }}>
@@ -55,9 +56,16 @@ const SignUp = () => {
         <Button sx={{ width: "100%", my: 1 }} variant="contained" size="large">
           Sign up
         </Button>
-        <Typography className="center" color="primary" variant="subtitle2">
+        <Button
+          onClick={() => setHasAccount(true)}
+          sx={{
+            textTransform: "none",
+            width: "100%",
+          }}
+          className="center hover-link"
+        >
           Have an account? Sign in here.
-        </Typography>
+        </Button>
       </Box>
     </Box>
   );

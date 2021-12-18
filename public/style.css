@@ -1,3 +1,15 @@
+/* primary: {
+  main: "#EC407A",
+  light: "#F48FB1",
+  dark: "#D81B60",
+  veryDark: "#AD1457"
+},
+secondary: {
+  main: "#212121",
+  light: "#424242",
+  dark: "#000000",
+}, */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +17,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* LAYOUT */
 .center {
   display: flex;
   justify-content: center;
@@ -18,7 +31,10 @@
   align-items: center;
 }
 
-/* display: "flex",
-flexDirection: "column",
-justifyContent: "flex-start",
-alignItems: "center", */
+/* HOVER */
+.hover-link:hover {
+  background-color: transparent !important;
+  color: #d81b60;
+  transition: all 0.2s ease;
+  /* transform: scale(1.05); */
+}

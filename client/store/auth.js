@@ -76,14 +76,25 @@ export const updatePassword = (currentPassword, newPassword) => {
   };
 };
 
-const initialState = { email: "", firstName: "", lastName: "" };
+const initialState = {
+  email: "",
+  firstName: "",
+  lastName: "",
+  loggedIn: false,
+};
 
 export default function auth(state = initialState, action) {
   switch (action.type) {
     case LOGIN:
-      return { ...state, ...action.payload };
+      return { ...state, ...action.payload, loggedIn: true };
     case LOGOUT:
-      return { ...state, email: "", firstName: "", lastName: "" };
+      return {
+        ...state,
+        email: "",
+        firstName: "",
+        lastName: "",
+        loggedIn: false,
+      };
     case UPDATE_USER:
       return { ...state, ...action.payload };
     default:
