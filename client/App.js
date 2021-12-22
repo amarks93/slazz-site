@@ -1,12 +1,19 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Navigation from "./Navigation";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Authentication from "./pages/Authentication";
+import { loadUser } from "./store/auth";
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadUser());
+  }, []);
+
   const loggedIn = useSelector((state) => state.auth.loggedIn);
+
   return (
     <>
       {loggedIn ? (

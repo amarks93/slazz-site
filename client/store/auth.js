@@ -16,13 +16,23 @@ const updateUser = ({ email, firstName, lastName }) => ({
   payload: { email, firstName, lastName },
 });
 
+export const loadUser = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get("/auth/load");
+      dispatch(setLoggedIn(data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
 export const authenticateLogin = (email, password) => {
   return async (dispatch) => {
     try {
-      console.log("In thunk");
       const { data } = await axios.post("/auth/login", { email, password });
-      console.log(data);
-      dispatch(setLoggedIn(data));
+      console.log("IN AUTHENTICATE LOGIN", data);
+      dispatch(loadUser());
     } catch (error) {
       console.log(error);
     }

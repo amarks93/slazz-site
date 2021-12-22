@@ -35,7 +35,6 @@ router.post("/login", async (req, res, next) => {
       httpOnly: true,
       signed: true,
     });
-    console.log(user);
     res.send(user);
   } catch (error) {
     next(error);
@@ -50,6 +49,14 @@ router.get("/logout", async (req, res, next) => {
       signed: true,
     });
     res.send("temp logged out message");
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/load", tokenMiddleware, async (req, res, next) => {
+  try {
+    res.send(req.user);
   } catch (error) {
     next(error);
   }
