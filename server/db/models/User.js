@@ -61,7 +61,7 @@ User.prototype.checkPassword = function (inputPassword) {
 User.authenticate = async ({ email, password }) => {
   try {
     const user = await User.findOne({ where: { email } });
-    const result = await user.correctPassword(password);
+    const result = await user.checkPassword(password);
     if (!user || !result) {
       const error = Error("Bad credentials");
       error.status = 401;

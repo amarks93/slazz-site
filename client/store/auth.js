@@ -19,8 +19,10 @@ const updateUser = ({ email, firstName, lastName }) => ({
 export const authenticateLogin = (email, password) => {
   return async (dispatch) => {
     try {
+      console.log("In thunk");
       const { data } = await axios.post("/auth/login", { email, password });
-      dispatch(setLoggedIn(data.user));
+      console.log(data);
+      dispatch(setLoggedIn(data));
     } catch (error) {
       console.log(error);
     }
@@ -36,7 +38,7 @@ export const authenticateSignUp = (email, firstName, lastName, password) => {
         lastName,
         password,
       });
-      dispatch(setLoggedIn(data.user));
+      dispatch(setLoggedIn(data));
     } catch (error) {
       console.log(error);
     }
@@ -51,7 +53,7 @@ export const updateUserThunk = (email, firstName, lastName) => {
         firstName,
         lastName,
       });
-      dispatch(updateUser(data.user));
+      dispatch(updateUser(data));
     } catch (error) {
       console.log(error);
     }

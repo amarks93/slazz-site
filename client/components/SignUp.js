@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { authenticateSignUp } from "../store/auth";
 import { Box, Button, TextField, Typography } from "@mui/material";
 
 const SignUp = (props) => {
   const setHasAccount = props.setHasAccount;
+
+  const [email, setEmail] = useState("test@gmail.com");
+  const [password, setPassword] = useState("123");
+  const [firstName, setFirstName] = useState("Jane");
+  const [lastName, setLastName] = useState("Doe");
+
+  const dispatch = useDispatch();
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    dispatch(authenticateSignUp(email, firstName, lastName, password));
+  };
+
   return (
     <Box className="flex-start-col" sx={{ p: 2, width: "100%" }}>
       <Box sx={{ width: "100%", my: 1 }}>
@@ -11,6 +25,8 @@ const SignUp = (props) => {
           fullWidth
           size="small"
           name="email"
+          value={email}
+          onChange={(evt) => setEmail(evt.target.value)}
           sx={{ bgcolor: "white" }}
         />
       </Box>
@@ -20,6 +36,8 @@ const SignUp = (props) => {
           fullWidth
           size="small"
           name="firstName"
+          value={firstName}
+          onChange={() => setFirstName(evt.target.value)}
           sx={{ bgcolor: "white" }}
         />
       </Box>
@@ -29,6 +47,8 @@ const SignUp = (props) => {
           fullWidth
           size="small"
           name="lastName"
+          value={lastName}
+          onChangeCapture={() => setLastName(evt.target.value)}
           sx={{ bgcolor: "white" }}
         />
       </Box>
@@ -39,6 +59,8 @@ const SignUp = (props) => {
           size="small"
           type="password"
           name="password"
+          value={password}
+          onChange={(evt) => setPassword(evt.target.value)}
           sx={{ bgcolor: "white" }}
         />
       </Box>
@@ -53,7 +75,12 @@ const SignUp = (props) => {
         />
       </Box>
       <Box sx={{ width: "100%", my: 1 }}>
-        <Button sx={{ width: "100%", my: 1 }} variant="contained" size="large">
+        <Button
+          sx={{ width: "100%", my: 1 }}
+          variant="contained"
+          size="large"
+          onClick={handleSubmit}
+        >
           Sign up
         </Button>
         <Button

@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { authenticateLogin } from "../store/auth";
 import { Box, Button, TextField, Typography } from "@mui/material";
 
 const Login = (props) => {
   const setHasAccount = props.setHasAccount;
+
+  const [email, setEmail] = useState("amarks93@gmail.com");
+  const [password, setPassword] = useState("Luna");
+
+  const dispatch = useDispatch();
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    dispatch(authenticateLogin(email, password));
+  };
+
   return (
     <Box className="flex-start-col" sx={{ p: 2, width: "100%" }}>
       <Box sx={{ width: "100%", my: 1 }}>
@@ -11,6 +23,8 @@ const Login = (props) => {
           fullWidth
           size="small"
           name="email"
+          value={email}
+          onChange={(evt) => setEmail(evt.target.value)}
           sx={{ bgcolor: "white" }}
         />
       </Box>
@@ -21,11 +35,18 @@ const Login = (props) => {
           size="small"
           type="password"
           name="password"
+          value={password}
+          onChange={(evt) => setPassword(evt.target.value)}
           sx={{ bgcolor: "white" }}
         />
       </Box>
       <Box sx={{ width: "100%", my: 1 }}>
-        <Button sx={{ width: "100%", my: 1 }} variant="contained" size="large">
+        <Button
+          sx={{ width: "100%", my: 1 }}
+          variant="contained"
+          size="large"
+          onClick={handleSubmit}
+        >
           Sign in
         </Button>
         <Button

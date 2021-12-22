@@ -1,5 +1,7 @@
 const router = require("express").Router();
-const { models: User } = require("../db");
+const {
+  models: { User },
+} = require("../db");
 const { tokenMiddleware } = require("../auth-middleware");
 
 const cookieParser = require("cookie-parser");
@@ -33,6 +35,7 @@ router.post("/login", async (req, res, next) => {
       httpOnly: true,
       signed: true,
     });
+    console.log(user);
     res.send(user);
   } catch (error) {
     next(error);

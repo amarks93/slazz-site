@@ -7,7 +7,6 @@ import Authentication from "./pages/Authentication";
 
 const App = () => {
   const loggedIn = useSelector((state) => state.auth.loggedIn);
-  console.log(loggedIn);
   return (
     <>
       {loggedIn ? (
