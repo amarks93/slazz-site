@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setLoggedOut } from "../store/auth";
 import {
   Avatar,
   Box,
@@ -7,11 +9,13 @@ import {
   Typography,
   Menu,
   MenuItem,
-} from '@mui/material';
+} from "@mui/material";
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ["Profile", "Account", "Dashboard"];
 
 const ProfileMenu = (props) => {
+  const dispatch = useDispatch();
+
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -32,17 +36,17 @@ const ProfileMenu = (props) => {
         </IconButton>
       </Tooltip>
       <Menu
-        sx={{ mt: '45px' }}
+        sx={{ mt: "45px" }}
         id="menu-appbar"
         anchorEl={anchorElUser}
         anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
+          vertical: "top",
+          horizontal: "right",
         }}
         keepMounted
         transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
+          vertical: "top",
+          horizontal: "right",
         }}
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
@@ -52,6 +56,9 @@ const ProfileMenu = (props) => {
             <Typography textAlign="center">{setting}</Typography>
           </MenuItem>
         ))}
+        <MenuItem onClick={() => dispatch(setLoggedOut())}>
+          <Typography textAlign="center">Logout</Typography>
+        </MenuItem>
       </Menu>
     </Box>
   );
