@@ -15,6 +15,7 @@ const Authentication = () => {
         bgcolor: "secondary.main",
       }}
     >
+      <img src="./images/Britney-Strong.png" style={{ width: "50px" }} />
       <Typography variant="h4" color="primary">
         #slazz
       </Typography>

@@ -9,6 +9,10 @@ secondary: {
   light: "#424242",
   dark: "#000000",
 }, */
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat/Montserrat-Regular.ttf") format("woff");
+}
 
 * {
   margin: 0;
@@ -34,7 +38,7 @@ secondary: {
 /* HOVER */
 .hover-link:hover {
   background-color: transparent !important;
-  color: #d81b60;
-  transition: all 0.2s ease;
+  color: #d81b60 !important;
+  transition: all 0.2s ease !important;
   /* transform: scale(1.05); */
 }

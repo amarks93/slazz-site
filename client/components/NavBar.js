@@ -1,16 +1,17 @@
-import React from 'react';
-import ProfileMenu from './ProfileMenu';
-import NavBarCollapse from './NavBarCollapse';
+import React from "react";
+import ProfileMenu from "./ProfileMenu";
+import NavBarCollapse from "./NavBarCollapse";
 import {
   AppBar,
   Box,
   Button,
   Container,
+  Link,
   Toolbar,
   Typography,
-} from '@mui/material';
+} from "@mui/material";
 
-const pages = ['About', 'Schedule', 'Archives'];
+const pages = ["about", "schedule", "archives"];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -32,22 +33,24 @@ const NavBar = () => {
             color="primary"
             noWrap
             component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
             #slazz
           </Typography>
           <Box
             sx={{
               flexGrow: 1,
-              justifyContent: 'flex-end',
-              display: { xs: 'none', md: 'flex' },
+              justifyContent: "flex-end",
+              display: { xs: "none", md: "flex" },
             }}
           >
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, mx: 2, color: 'primary', display: 'block' }}
+                underline="none"
+                href="#"
+                sx={{ my: 2, mx: 2, color: "primary", display: "block" }}
               >
                 {page}
               </Button>

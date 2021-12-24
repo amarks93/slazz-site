@@ -1,7 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  return <div></div>;
+  const name = useSelector((state) => state.auth.firstName);
+  return (
+    <div className="center" style={{ fontSize: 120, textAlign: "center" }}>
+      MERRY CHRISTMAS {name.toUpperCase()}!!!
+    </div>
+  );
 };
 
 export default Home;

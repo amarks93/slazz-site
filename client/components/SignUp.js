@@ -6,10 +6,10 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 const SignUp = (props) => {
   const setHasAccount = props.setHasAccount;
 
-  const [email, setEmail] = useState("test@gmail.com");
-  const [password, setPassword] = useState("123");
-  const [firstName, setFirstName] = useState("Jane");
-  const [lastName, setLastName] = useState("Doe");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   const dispatch = useDispatch();
   const handleSubmit = (evt) => {
@@ -37,7 +37,7 @@ const SignUp = (props) => {
           size="small"
           name="firstName"
           value={firstName}
-          onChange={() => setFirstName(evt.target.value)}
+          onChange={(evt) => setFirstName(evt.target.value)}
           sx={{ bgcolor: "white" }}
         />
       </Box>
@@ -48,7 +48,7 @@ const SignUp = (props) => {
           size="small"
           name="lastName"
           value={lastName}
-          onChangeCapture={() => setLastName(evt.target.value)}
+          onChangeCapture={(evt) => setLastName(evt.target.value)}
           sx={{ bgcolor: "white" }}
         />
       </Box>
@@ -65,7 +65,7 @@ const SignUp = (props) => {
         />
       </Box>
       <Box sx={{ width: "100%", my: 1 }}>
-        <Typography> Confirm password</Typography>
+        <Typography>Confirm password</Typography>
         <TextField
           fullWidth
           size="small"

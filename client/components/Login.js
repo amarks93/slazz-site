@@ -6,8 +6,8 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 const Login = (props) => {
   const setHasAccount = props.setHasAccount;
 
-  const [email, setEmail] = useState("amarks93@gmail.com");
-  const [password, setPassword] = useState("Luna");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
   const handleSubmit = (evt) => {

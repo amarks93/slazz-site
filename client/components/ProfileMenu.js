@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setLoggedOut } from "../store/auth";
+import { logoutThunk } from "../store/auth";
 import {
-  Avatar,
   Box,
   IconButton,
   Tooltip,
@@ -29,9 +28,10 @@ const ProfileMenu = (props) => {
     <Box sx={{ flexGrow: 0 }}>
       <Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar
-            alt="Alexandra Marks"
-            src="https://ca.slack-edge.com/T024FPYBQ-U029NF4D8LD-4ef038e02b60-512"
+          <img
+            src="./images/Britney-Strong.png"
+            style={{ width: "20px", marginLeft: "10px" }}
+            sx={{ width: "20px" }}
           />
         </IconButton>
       </Tooltip>
@@ -56,7 +56,7 @@ const ProfileMenu = (props) => {
             <Typography textAlign="center">{setting}</Typography>
           </MenuItem>
         ))}
-        <MenuItem onClick={() => dispatch(setLoggedOut())}>
+        <MenuItem onClick={() => dispatch(logoutThunk())}>
           <Typography textAlign="center">Logout</Typography>
         </MenuItem>
       </Menu>

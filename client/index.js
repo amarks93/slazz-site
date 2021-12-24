@@ -27,9 +27,9 @@ const theme = createTheme({
       paper: "#f7f8fa",
     },
   },
-  // typography: {
-  //   fontFamily: ["Arial"].join(","),
-  // },
+  typography: {
+    fontFamily: "Montserrat",
+  },
 });
 
 ReactDOM.render(
