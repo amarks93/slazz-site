@@ -28,15 +28,17 @@ const NavBar = () => {
     <AppBar position="static" color="secondary">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h4"
-            color="primary"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-          >
-            #slazz
-          </Typography>
+          <Link underline="none" href="/">
+            <Typography
+              variant="h4"
+              color="primary"
+              noWrap
+              component="div"
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            >
+              #slazz
+            </Typography>
+          </Link>
           <Box
             sx={{
               flexGrow: 1,
@@ -49,7 +51,7 @@ const NavBar = () => {
                 key={page}
                 onClick={handleCloseNavMenu}
                 underline="none"
-                href="#"
+                href={`/${page}`}
                 sx={{ my: 2, mx: 2, color: "primary", display: "block" }}
               >
                 {page}
