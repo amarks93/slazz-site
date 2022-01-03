@@ -1,32 +1,16 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Navigation from "./Navigation";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
-import Authentication from "./pages/Authentication";
-import { loadUser } from "./store/auth";
 
-const App = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadUser());
-  }, []);
+const withRouter = () => {
+  const App = () => {
+    let location = useLocation();
+    let navigate = useNavigate();
+    let params = useParams();
 
-  const loggedIn = useSelector((state) => state.auth.loggedIn);
-
-  return (
-    <>
-      {loggedIn ? (
-        <div>
-          <NavBar />
-          <Navigation />
-          <Footer />
-        </div>
-      ) : (
-        <Authentication />
-      )}
-    </>
-  );
+    return <Navigation router={{ location, navigate, params }} />;
+  };
+  return <App />;
 };
 
-export default App;
+export default withRouter;
