@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Box, IconButton, Typography, Menu, MenuItem } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { Box, IconButton, Typography, Menu, MenuItem } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const NavBarCollapse = (props) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -14,7 +15,7 @@ const NavBarCollapse = (props) => {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+      <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -29,36 +30,40 @@ const NavBarCollapse = (props) => {
           id="menu-appbar"
           anchorEl={anchorElNav}
           anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
+            vertical: "bottom",
+            horizontal: "left",
           }}
           keepMounted
           transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
+            vertical: "top",
+            horizontal: "left",
           }}
           open={Boolean(anchorElNav)}
           onClose={handleCloseNavMenu}
           sx={{
-            display: { xs: 'block', md: 'none' },
+            display: { xs: "block", md: "none" },
           }}
         >
           {props.pages.map((page) => (
             <MenuItem key={page} onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">{page}</Typography>
+              <NavLink to={`/${page}`}>
+                <Typography textAlign="center">{page}</Typography>
+              </NavLink>
             </MenuItem>
           ))}
         </Menu>
       </Box>
-      <Typography
-        variant="h4"
-        color="primary"
-        noWrap
-        component="div"
-        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-      >
-        #slazz
-      </Typography>
+      <NavLink to={"/"}>
+        <Typography
+          variant="h4"
+          color="primary"
+          noWrap
+          component="div"
+          sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+        >
+          #slazz
+        </Typography>
+      </NavLink>
     </>
   );
 };
