@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import ProfileMenu from "./ProfileMenu";
 import NavBarCollapse from "./NavBarCollapse";
 import {
@@ -28,7 +29,7 @@ const NavBar = () => {
     <AppBar position="static" color="secondary">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Link underline="none" href="/">
+          <NavLink style={{ textDecoration: "none" }} to="/">
             <Typography
               variant="h4"
               color="primary"
@@ -38,7 +39,7 @@ const NavBar = () => {
             >
               #slazz
             </Typography>
-          </Link>
+          </NavLink>
           <Box
             sx={{
               flexGrow: 1,
@@ -47,15 +48,19 @@ const NavBar = () => {
             }}
           >
             {pages.map((page) => (
-              <Button
+              <NavLink
                 key={page}
-                onClick={handleCloseNavMenu}
-                underline="none"
-                href={`/${page}`}
-                sx={{ my: 2, mx: 2, color: "primary", display: "block" }}
+                to={`/${page}`}
+                style={{ textDecoration: "none" }}
               >
-                {page}
-              </Button>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  underline="none"
+                  sx={{ my: 2, mx: 2, color: "primary", display: "block" }}
+                >
+                  {page}
+                </Button>
+              </NavLink>
             ))}
           </Box>
           <NavBarCollapse pages={pages} />
