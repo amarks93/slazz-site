@@ -45,25 +45,29 @@ const NavBarCollapse = (props) => {
           }}
         >
           {props.pages.map((page) => (
-            <MenuItem key={page} onClick={handleCloseNavMenu}>
-              <NavLink to={`/${page}`}>
+            <NavLink
+              key={page}
+              to={`/${page}`}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">{page}</Typography>
-              </NavLink>
-            </MenuItem>
+              </MenuItem>
+            </NavLink>
           ))}
         </Menu>
       </Box>
-      <NavLink to={"/"}>
-        <Typography
-          variant="h4"
-          color="primary"
-          noWrap
-          component="div"
-          sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-        >
-          #slazz
-        </Typography>
-      </NavLink>
+      <Box
+        noWrap
+        component="div"
+        sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+      >
+        <NavLink style={{ textDecoration: "none" }} to="/">
+          <Typography variant="h4" color="primary">
+            #slazz
+          </Typography>
+        </NavLink>
+      </Box>
     </>
   );
 };

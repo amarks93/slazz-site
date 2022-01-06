@@ -29,7 +29,7 @@ const NavBar = () => {
     <AppBar position="static" color="secondary">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <NavLink underline="none" to="/">
+          <NavLink style={{ textDecoration: "none" }} to="/">
             <Typography
               variant="h4"
               color="primary"
@@ -50,12 +50,16 @@ const NavBar = () => {
             {pages.map((page) => (
               <NavLink
                 key={page}
-                onClick={handleCloseNavMenu}
-                underline="none"
                 to={`/${page}`}
-                sx={{ my: 2, mx: 2, color: "primary", display: "block" }}
+                style={{ textDecoration: "none" }}
               >
-                {page}
+                <Button
+                  onClick={handleCloseNavMenu}
+                  underline="none"
+                  sx={{ my: 2, mx: 2, color: "primary", display: "block" }}
+                >
+                  {page}
+                </Button>
               </NavLink>
             ))}
           </Box>

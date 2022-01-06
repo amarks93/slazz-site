@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 const Home = () => {
   return (
     <Box className="center" style={{ flexDirection: "column" }}>
-      <MainCarousel />
+      {/* <MainCarousel /> */}
     </Box>
   );
 };
