@@ -11,10 +11,10 @@ import {
   MenuItem,
 } from "@mui/material";
 
-const settings = ["profile", "account", "dashboard"];
-
 const ProfileMenu = () => {
   const dispatch = useDispatch();
+
+  const settings = ["profile", "account", "dashboard"];
 
   const [anchorElUser, setAnchorElUser] = useState(null);
 

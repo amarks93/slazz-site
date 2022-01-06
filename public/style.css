@@ -55,3 +55,8 @@ body {
   max-height: 400px;
   object-fit: contain;
 }
+
+/* DIVIDER */
+.MuiDivider-root {
+  border-color: #ec407a !important;
+}

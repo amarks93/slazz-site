@@ -12,9 +12,9 @@ import {
   Typography,
 } from "@mui/material";
 
-const pages = ["about", "schedule", "archives"];
-
 const NavBar = () => {
+  const pages = ["about", "schedule", "archives"];
+
   return (
     <AppBar position="static" color="secondary">
       <Container maxWidth="xl">
