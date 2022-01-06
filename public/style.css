@@ -1,14 +1,3 @@
-/* primary: {
-  main: "#EC407A",
-  light: "#F48FB1",
-  dark: "#D81B60",
-  veryDark: "#AD1457"
-},
-secondary: {
-  main: "#212121",
-  light: "#424242",
-  dark: "#000000",
-}, */
 @font-face {
   font-family: "Montserrat";
   src: url("./fonts/Montserrat/Montserrat-Regular.ttf") format("woff");
@@ -54,9 +43,4 @@ body {
   height: 100%;
   max-height: 400px;
   object-fit: contain;
-}
-
-/* DIVIDER */
-.MuiDivider-root {
-  border-color: #ec407a !important;
 }

@@ -23,7 +23,6 @@ const SignUp = (props) => {
       (field) => field === ""
     ) || password !== passwordCopy;
 
-  console.log(isDisabled);
   return (
     <Box className="flex-start-col" sx={{ p: 2, width: "100%" }}>
       <Box sx={{ width: "100%", my: 1 }}>

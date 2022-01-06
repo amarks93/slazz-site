@@ -1,19 +1,26 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Box, Divider, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Divider,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 const Account = () => {
   const { email, firstName, lastName } = useSelector((state) => state.auth);
   console.log(email, firstName);
   return (
     <Box>
-      <Box className="center" sx={{ my: 2 }}>
+      <Box className="center" sx={{ m: 2 }}>
         <Typography variant="h5" color="primary">
           account settings
         </Typography>
       </Box>
-      <Divider variant="middle" />
+      <Divider variant="middle" sx={{ backgroundColor: "primary.main" }} />
       <Box
         sx={{
           display: "flex",
@@ -29,15 +36,19 @@ const Account = () => {
             alignItems: { xs: "center", md: "flex-end" },
             justifyContent: "flex-start",
             flexGrow: { md: 1 },
-            backgroundColor: "yellow",
+            m: 2,
           }}
         >
-          <Typography variant="h3" color="primary">
-            Left Box 1
-          </Typography>
-          <Typography variant="h3" color="primary">
-            Left Box 2
-          </Typography>
+          <Avatar
+            src="invalidurltest.com"
+            alt={firstName}
+            sx={{
+              backgroundColor: "primary.main",
+              height: 150,
+              width: 150,
+              fontSize: "3rem",
+            }}
+          ></Avatar>
         </Box>
         <Box
           sx={{
@@ -45,19 +56,53 @@ const Account = () => {
             flexDirection: "column",
             alignItems: { xs: "center", md: "flex-start" },
             justifyContent: "flex-start",
-            flexGrow: { md: 2 },
-            backgroundColor: "orange",
+            flexGrow: { md: 1 },
+            m: 2,
           }}
         >
-          <Typography variant="h3" color="primary">
-            Right Box 1
-          </Typography>
-          <Typography variant="h3" color="primary">
-            Right Box 2
-          </Typography>
-          <Typography variant="h3" color="primary">
-            Right Box 3
-          </Typography>
+          <Box sx={{ width: 500 }}>
+            <Paper className="flex-start-col">
+              <Box className="flex-start-col" sx={{ p: 2, width: "100%" }}>
+                <Box sx={{ width: "100%", my: 1 }}>
+                  <Typography>Email address</Typography>
+                  <TextField
+                    fullWidth
+                    size="small"
+                    name="email"
+                    sx={{ bgcolor: "white" }}
+                  />
+                </Box>
+                <Box sx={{ width: "100%", my: 1 }}>
+                  <Typography>First name</Typography>
+                  <TextField
+                    fullWidth
+                    size="small"
+                    name="firstName"
+                    sx={{ bgcolor: "white" }}
+                  />
+                </Box>
+                <Box sx={{ width: "100%", my: 1 }}>
+                  <Typography>Last name</Typography>
+                  <TextField
+                    fullWidth
+                    size="small"
+                    name="lastName"
+                    sx={{ bgcolor: "white" }}
+                  />
+                </Box>
+                <Box sx={{ width: "100%", my: 1 }}>
+                  <Typography>Password</Typography>
+                  <TextField
+                    fullWidth
+                    size="small"
+                    type="password"
+                    name="password"
+                    sx={{ bgcolor: "white" }}
+                  />
+                </Box>
+              </Box>
+            </Paper>
+          </Box>
         </Box>
       </Box>
     </Box>
