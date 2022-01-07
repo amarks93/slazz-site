@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 import { updateUserThunk } from "../store/auth";
+import ChangePassword from "../components/ChangePassword";
 
 import {
   Avatar,
@@ -15,10 +17,7 @@ import {
 const Account = () => {
   const { email, firstName, lastName } = useSelector((state) => state.auth);
 
-  const [changePassword, setChangePassword] = useState(false);
-
   const [updatedEmail, setUpdatedEmail] = useState(email);
-  const [updatedPassword, setUpdatedPassword] = useState("");
   const [updatedFirstName, setUpdatedFirstName] = useState(firstName);
   const [updatedLastName, setUpdatedLastName] = useState(lastName);
 
@@ -116,43 +115,7 @@ const Account = () => {
                     sx={{ bgcolor: "white" }}
                   />
                 </Box>
-                {!changePassword ? (
-                  <Box sx={{ width: "100%", my: 1 }}>
-                    <Button
-                      variant="contained"
-                      size="large"
-                      onClick={() => setChangePassword(true)}
-                      sx={{ width: "100%" }}
-                    >
-                      Change password
-                    </Button>
-                  </Box>
-                ) : (
-                  <>
-                    <Box sx={{ width: "100%", my: 1 }}>
-                      <Typography>New password</Typography>
-                      <TextField
-                        fullWidth
-                        size="small"
-                        type="password"
-                        name="password"
-                        value={updatedPassword}
-                        onChange={(evt) => setUpdatedPassword(evt.target.value)}
-                        sx={{ bgcolor: "white" }}
-                      />
-                    </Box>
-                    <Box sx={{ width: "100%", mt: 1, mb: 2 }}>
-                      <Button
-                        variant="contained"
-                        size="large"
-                        onClick={() => setChangePassword(false)}
-                        sx={{ width: "100%" }}
-                      >
-                        Cancel
-                      </Button>
-                    </Box>
-                  </>
-                )}
+                <ChangePassword />
                 <Box sx={{ width: "100%", my: 1 }}>
                   <Button
                     variant="contained"
