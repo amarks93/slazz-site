@@ -10,20 +10,17 @@ const SignUp = (props) => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [passwordCopy, setPasswordCopy] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const dispatch = useDispatch();
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
+  const handleSubmit = () =>
     dispatch(authenticateSignUp(email, firstName, lastName, password));
-  };
 
   let isDisabled =
-    [email, password, firstName, lastName, passwordCopy].some(
+    [email, password, firstName, lastName, confirmPassword].some(
       (field) => field === ""
-    ) || password !== passwordCopy;
+    ) || password !== confirmPassword;
 
-  console.log(isDisabled);
   return (
     <Box className="flex-start-col" sx={{ p: 2, width: "100%" }}>
       <Box sx={{ width: "100%", my: 1 }}>
@@ -75,15 +72,15 @@ const SignUp = (props) => {
         <Typography>Confirm password</Typography>
         <TextField
           fullWidth
-          error={password !== passwordCopy}
+          error={password !== confirmPassword}
           helperText={
-            password === passwordCopy ? "" : "Passwords should match."
+            password === confirmPassword ? "" : "Passwords should match."
           }
           size="small"
           type="password"
           name="confirmPassword"
-          value={passwordCopy}
-          onChange={(evt) => setPasswordCopy(evt.target.value)}
+          value={confirmPassword}
+          onChange={(evt) => setConfirmPassword(evt.target.value)}
           sx={{ bgcolor: "white" }}
         />
       </Box>

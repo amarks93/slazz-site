@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import ProfileMenu from "./ProfileMenu";
 import NavBarCollapse from "./NavBarCollapse";
@@ -12,18 +12,8 @@ import {
   Typography,
 } from "@mui/material";
 
-const pages = ["about", "schedule", "archives"];
-
 const NavBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  const pages = ["about", "schedule", "archives"];
 
   return (
     <AppBar position="static" color="secondary">
@@ -54,7 +44,6 @@ const NavBar = () => {
                 style={{ textDecoration: "none" }}
               >
                 <Button
-                  onClick={handleCloseNavMenu}
                   underline="none"
                   sx={{ my: 2, mx: 2, color: "primary", display: "block" }}
                 >
@@ -64,7 +53,7 @@ const NavBar = () => {
             ))}
           </Box>
           <NavBarCollapse pages={pages} />
-          <ProfileMenu handleCloseNavMenu={handleCloseNavMenu} />
+          <ProfileMenu />
         </Toolbar>
       </Container>
     </AppBar>

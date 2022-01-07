@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logoutThunk } from "../store/auth";
 import {
@@ -10,10 +11,10 @@ import {
   MenuItem,
 } from "@mui/material";
 
-const settings = ["Profile", "Account", "Dashboard"];
-
-const ProfileMenu = (props) => {
+const ProfileMenu = () => {
   const dispatch = useDispatch();
+
+  const settings = ["profile", "account", "dashboard"];
 
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -52,9 +53,15 @@ const ProfileMenu = (props) => {
         onClose={handleCloseUserMenu}
       >
         {settings.map((setting) => (
-          <MenuItem key={setting} onClick={props.handleCloseNavMenu}>
-            <Typography textAlign="center">{setting}</Typography>
-          </MenuItem>
+          <NavLink
+            key={setting}
+            to={`/${setting}`}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <MenuItem onClick={handleCloseUserMenu}>
+              <Typography textAlign="center">{setting}</Typography>
+            </MenuItem>
+          </NavLink>
         ))}
         <MenuItem onClick={() => dispatch(logoutThunk())}>
           <Typography textAlign="center">Logout</Typography>

@@ -95,7 +95,7 @@ export const updateUserThunk = (email, firstName, lastName) => {
 };
 
 export const updatePassword = (currentPassword, newPassword) => {
-  return async (dispatch) => {
+  return async () => {
     try {
       const response = await axios.put("/auth/updatePassword", {
         currentPassword,
