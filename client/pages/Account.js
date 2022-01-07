@@ -79,7 +79,7 @@ const Account = () => {
             m: 2,
           }}
         >
-          <Box sx={{ width: 500 }}>
+          <Box sx={{ width: { xs: 450, sm: 500 } }}>
             <Paper className="flex-start-col">
               <Box className="flex-start-col" sx={{ p: 2, width: "100%" }}>
                 <Box sx={{ width: "100%", my: 1 }}>
