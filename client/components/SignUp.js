@@ -13,10 +13,8 @@ const SignUp = (props) => {
   const [passwordCopy, setPasswordCopy] = useState("");
 
   const dispatch = useDispatch();
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
+  const handleSubmit = () =>
     dispatch(authenticateSignUp(email, firstName, lastName, password));
-  };
 
   let isDisabled =
     [email, password, firstName, lastName, passwordCopy].some(

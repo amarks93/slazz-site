@@ -1,9 +1,11 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateUserThunk } from "../store/auth";
 
 import {
   Avatar,
   Box,
+  Button,
   Divider,
   Paper,
   TextField,
@@ -12,7 +14,25 @@ import {
 
 const Account = () => {
   const { email, firstName, lastName } = useSelector((state) => state.auth);
-  console.log(email, firstName);
+
+  const [changePassword, setChangePassword] = useState(false);
+
+  const [updatedEmail, setUpdatedEmail] = useState(email);
+  const [updatedPassword, setUpdatedPassword] = useState("");
+  const [updatedFirstName, setUpdatedFirstName] = useState(firstName);
+  const [updatedLastName, setUpdatedLastName] = useState(lastName);
+
+  const dispatch = useDispatch();
+  const handleSubmit = () =>
+    dispatch(updateUserThunk(updatedEmail, updatedFirstName, updatedLastName));
+
+  let isDisabled;
+  email === updatedEmail &&
+  firstName === updatedFirstName &&
+  lastName === updatedLastName
+    ? (isDisabled = true)
+    : (isDisabled = false);
+
   return (
     <Box>
       <Box className="center" sx={{ m: 2 }}>
@@ -69,6 +89,8 @@ const Account = () => {
                     fullWidth
                     size="small"
                     name="email"
+                    value={updatedEmail}
+                    onChange={(evt) => setUpdatedEmail(evt.target.value)}
                     sx={{ bgcolor: "white" }}
                   />
                 </Box>
@@ -78,6 +100,8 @@ const Account = () => {
                     fullWidth
                     size="small"
                     name="firstName"
+                    value={updatedFirstName}
+                    onChange={(evt) => setUpdatedFirstName(evt.target.value)}
                     sx={{ bgcolor: "white" }}
                   />
                 </Box>
@@ -87,18 +111,58 @@ const Account = () => {
                     fullWidth
                     size="small"
                     name="lastName"
+                    value={updatedLastName}
+                    onChange={(evt) => setUpdatedLastName(evt.target.value)}
                     sx={{ bgcolor: "white" }}
                   />
                 </Box>
+                {!changePassword ? (
+                  <Box sx={{ width: "100%", my: 1 }}>
+                    <Button
+                      variant="contained"
+                      size="large"
+                      onClick={() => setChangePassword(true)}
+                      sx={{ width: "100%" }}
+                    >
+                      Change password
+                    </Button>
+                  </Box>
+                ) : (
+                  <>
+                    <Box sx={{ width: "100%", my: 1 }}>
+                      <Typography>New password</Typography>
+                      <TextField
+                        fullWidth
+                        size="small"
+                        type="password"
+                        name="password"
+                        value={updatedPassword}
+                        onChange={(evt) => setUpdatedPassword(evt.target.value)}
+                        sx={{ bgcolor: "white" }}
+                      />
+                    </Box>
+                    <Box sx={{ width: "100%", mt: 1, mb: 2 }}>
+                      <Button
+                        variant="contained"
+                        size="large"
+                        onClick={() => setChangePassword(false)}
+                        sx={{ width: "100%" }}
+                      >
+                        Cancel
+                      </Button>
+                    </Box>
+                  </>
+                )}
                 <Box sx={{ width: "100%", my: 1 }}>
-                  <Typography>Password</Typography>
-                  <TextField
-                    fullWidth
-                    size="small"
-                    type="password"
-                    name="password"
-                    sx={{ bgcolor: "white" }}
-                  />
+                  <Button
+                    variant="contained"
+                    size="large"
+                    sx={{ width: "100%" }}
+                    disabled={isDisabled}
+                    onClick={handleSubmit}
+                  >
+                    Update account
+                  </Button>
                 </Box>
               </Box>
             </Paper>
