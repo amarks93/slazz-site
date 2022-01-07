@@ -15,7 +15,15 @@ const ChangePassword = () => {
   const dispatch = useDispatch();
   const handleUpdatePassword = () => {
     dispatch(updatePassword(oldPassword, newPassword));
+    setChangePassword(false);
   };
+
+  let isDisabled =
+    oldPassword === newPassword ||
+    newPassword !== confirmNewPassword ||
+    [oldPassword, newPassword, confirmNewPassword].some(
+      (field) => field === ""
+    );
 
   return (
     <>
@@ -38,7 +46,7 @@ const ChangePassword = () => {
               fullWidth
               size="small"
               type="password"
-              name="password"
+              name="oldPassword"
               value={oldPassword}
               onChange={(evt) => setOldPassword(evt.target.value)}
               sx={{ bgcolor: "white" }}
@@ -48,9 +56,14 @@ const ChangePassword = () => {
             <Typography>New password</Typography>
             <TextField
               fullWidth
+              error={oldPassword === newPassword}
+              helperText={
+                oldPassword === newPassword &&
+                "New password cannot be the same as previous password."
+              }
               size="small"
               type="password"
-              name="password"
+              name="newPassword"
               value={newPassword}
               onChange={(evt) => setNewPassword(evt.target.value)}
               sx={{ bgcolor: "white" }}
@@ -60,9 +73,15 @@ const ChangePassword = () => {
             <Typography>Confirm new password</Typography>
             <TextField
               fullWidth
+              error={newPassword !== confirmNewPassword}
+              helperText={
+                newPassword === confirmNewPassword
+                  ? ""
+                  : "Passwords should match."
+              }
               size="small"
               type="password"
-              name="password"
+              name="confirmNewPassword"
               value={confirmNewPassword}
               onChange={(evt) => setConfirmNewPassword(evt.target.value)}
               sx={{ bgcolor: "white" }}
@@ -72,6 +91,7 @@ const ChangePassword = () => {
             <Button
               variant="contained"
               size="large"
+              disabled={isDisabled}
               onClick={handleUpdatePassword}
               sx={{ width: "100%" }}
             >
