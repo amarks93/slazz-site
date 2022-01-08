@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { authenticateSignUp } from "../store/auth";
 import { Box, Button, TextField, Typography } from "@mui/material";
 
@@ -13,9 +14,10 @@ const SignUp = (props) => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const dispatch = useDispatch();
-  const handleSubmit = () =>
+  const handleSubmit = () => {
     dispatch(authenticateSignUp(email, firstName, lastName, password));
-
+    navigate("/");
+  };
   let isDisabled =
     [email, password, firstName, lastName, confirmPassword].some(
       (field) => field === ""

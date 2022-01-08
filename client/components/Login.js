@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { authenticateLogin } from "../store/auth";
 import { Box, Button, TextField, Typography } from "@mui/material";
 
@@ -10,9 +11,10 @@ const Login = (props) => {
   const [password, setPassword] = useState("Luna");
 
   const dispatch = useDispatch();
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
+  const navigate = useNavigate();
+  const handleSubmit = () => {
     dispatch(authenticateLogin(email, password));
+    navigate("/");
   };
 
   return (
