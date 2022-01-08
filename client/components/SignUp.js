@@ -14,6 +14,7 @@ const SignUp = (props) => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleSubmit = () => {
     dispatch(authenticateSignUp(email, firstName, lastName, password));
     navigate("/");
