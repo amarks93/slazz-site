@@ -1,27 +1,23 @@
 import React from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Paper, Typography } from "@mui/material";
 
 const ScheduleItem = ({ day, time, level, type }) => {
   return (
-    <Box className="center">
-      <Box>
-        <Typography>{day}</Typography>
+    <Paper className="flex-start-col" sx={{ width: "175px", m: 1 }}>
+      <Box sx={{ bgcolor: "primary.light", width: "100%", p: 1 }}>
+        <Typography align="center">{day.toUpperCase()}</Typography>
       </Box>
-      <Box>
-        <Typography>{time}</Typography>
+      <Box sx={{ p: 1 }}>
+        <Typography align="center">{time}</Typography>
+        <Typography align="center">{level}</Typography>
+        <Typography align="center">{type}</Typography>
       </Box>
-      <Box>
-        <Typography>{level}</Typography>
-      </Box>
-      <Box>
-        <Typography>{type}</Typography>
-      </Box>
-      <Box>
-        <Button>
-          <Typography>Sign Up</Typography>
+      <Box sx={{ width: "100%" }}>
+        <Button sx={{ width: "100%" }}>
+          <Typography align="center">Sign Up</Typography>
         </Button>
       </Box>
-    </Box>
+    </Paper>
   );
 };
 
