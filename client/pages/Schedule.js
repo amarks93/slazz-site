@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ScheduleItem from "../components/ScheduleItem";
+import Header from "../components/Header";
 import { Box, Paper, Typography } from "@mui/material";
 
 const dummySchedule = [
@@ -47,12 +48,8 @@ const Schedule = () => {
   const [type, setType] = useState("all");
 
   return (
-    <Box className="flex-start-col">
-      <Box className="flex-start-col" sx={{ my: 2 }}>
-        <Typography variant="h4" color="primary">
-          CLASS SCHEDULE
-        </Typography>
-      </Box>
+    <Box>
+      <Header header={"class schedule"} />
       <Box
         sx={{
           display: "flex",
