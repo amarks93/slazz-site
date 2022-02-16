@@ -29,7 +29,20 @@ const ClassFilter = () => {
   const [levels, setLevels] = useState([]);
   const [types, setTypes] = useState([]);
 
-  const handleChange = () => console.log("in the handle change");
+  const handleSetDays = (evt) => {
+    const isString = typeof evt.target.value === "string";
+    setDays(isString ? evt.target.value.split(",") : evt.target.value);
+  };
+
+  const handleSetLevels = (evt) => {
+    const isString = typeof evt.target.value === "string";
+    setLevels(isString ? evt.target.value.split(",") : evt.target.value);
+  };
+
+  const handleSetTypes = (evt) => {
+    const isString = typeof evt.target.value === "string";
+    setTypes(isString ? evt.target.value.split(",") : evt.target.value);
+  };
 
   return (
     <Box>
@@ -40,7 +53,7 @@ const ClassFilter = () => {
           id="class-day-filter"
           multiple
           value={days}
-          onChange={handleChange}
+          onChange={handleSetDays}
           input={<OutlinedInput label="Day" />}
           renderValue={(selected) => selected.join(", ")}
         >
@@ -59,7 +72,7 @@ const ClassFilter = () => {
           id="level-filter"
           multiple
           value={levels}
-          onChange={handleChange}
+          onChange={handleSetLevels}
           input={<OutlinedInput label="Level" />}
           renderValue={(selected) => selected.join(", ")}
         >
@@ -78,7 +91,7 @@ const ClassFilter = () => {
           id="type-filter"
           multiple
           value={types}
-          onChange={handleChange}
+          onChange={handleSetTypes}
           input={<OutlinedInput label="Type" />}
           renderValue={(selected) => selected.join(", ")}
         >

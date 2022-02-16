@@ -82,8 +82,14 @@ const Schedule = () => {
             mt: 2,
           }}
         >
-          {dummySchedule.map(({ day, time, level, type }) => (
-            <ScheduleItem day={day} time={time} level={level} type={type} />
+          {dummySchedule.map(({ day, time, level, type }, index) => (
+            <ScheduleItem
+              key={index}
+              day={day}
+              time={time}
+              level={level}
+              type={type}
+            />
           ))}
         </Box>
       </Box>
