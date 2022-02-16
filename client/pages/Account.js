@@ -36,8 +36,7 @@ const Account = () => {
 
   return (
     <Box>
-      <Header header={"account settings"} />
-
+      <Header header={"account"} />
       <Box
         sx={{
           display: "flex",

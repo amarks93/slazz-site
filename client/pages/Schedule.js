@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ScheduleItem from "../components/ScheduleItem";
+import ClassFilter from "../components/ClassFilter";
 import Header from "../components/Header";
 import { Box, Paper, Typography } from "@mui/material";
 
@@ -43,43 +44,42 @@ const dummySchedule = [
 ];
 
 const Schedule = () => {
-  const [days, setDays] = useState("all");
-  const [level, setLevel] = useState("all");
-  const [type, setType] = useState("all");
-
   return (
     <Box>
-      <Header header={"class schedule"} />
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "flex-start",
-          justifyContent: "center",
-          width: "100%",
-        }}
+      <Header header={"schedule"} />
+      {/* <Box
+        className="flex-start-col"
+        // need to figure out flexGrow situation
+        sx={{ flexGrow: 1, alignItems: "flex-end" }}
       >
-        <Box className="flex-start-col" sx={{ width: "60%", p: 3 }}>
-          <img
-            src="./images/Heather-Kacy-BDC.jpeg"
-            alt="Heather and Kacy Prange at BDC"
-            style={{ borderRadius: "5px", width: "100%" }}
-          />
-          <Paper sx={{ width: "100%", p: 3, mt: 3 }}>
-            <Typography align="center" variant="h6" color="primary">
-              Heather currently teaches at Broadway Dance Center, which offers
-              both In-Person and Livestream classes! All class times are listed
-              in Eastern Time (New York). You can also view her schedule on the
-              Broadway Dance Center website, as well as MindBody.
-            </Typography>
-          </Paper>
+        <img
+          src="./images/Heather-Kacy-BDC.jpeg"
+          alt="Heather and Kacy Prange at BDC"
+          style={{ borderRadius: "5px", width: "100%" }}
+        />
+        <Paper sx={{ width: "100%", p: 3, mt: 3 }}>
+          <Typography align="center" variant="h6" color="primary">
+            Heather currently teaches at Broadway Dance Center, which offers
+            both In-Person and Livestream classes! All class times are listed in
+            Eastern Time (New York). You can also view her schedule on the
+            Broadway Dance Center website, as well as MindBody.
+          </Typography>
+        </Paper>
+      </Box> */}
+      <Box className="flex-start-col" sx={{ p: 3 }}>
+        <Box className="space-between-row">
+          <Typography align="center" variant="h4" color="primary">
+            Weekly Classes
+          </Typography>
+          <ClassFilter />
         </Box>
         <Box
           sx={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "center",
-            width: "40%",
-            pt: 3,
+            justifyContent: "flex-start",
+            width: "100%",
+            mt: 2,
           }}
         >
           {dummySchedule.map(({ day, time, level, type }) => (

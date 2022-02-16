@@ -3,7 +3,7 @@ import { Box, Button, Paper, Typography } from "@mui/material";
 
 const ScheduleItem = ({ day, time, level, type }) => {
   return (
-    <Paper className="flex-start-col" sx={{ width: "175px", m: 1 }}>
+    <Paper className="flex-start-col" sx={{ width: 200, m: 1 }}>
       <Box sx={{ bgcolor: "primary.light", width: "100%", p: 1 }}>
         <Typography align="center">{day.toUpperCase()}</Typography>
       </Box>
