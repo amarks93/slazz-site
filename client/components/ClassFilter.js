@@ -10,6 +10,8 @@ import {
   Select,
 } from "@mui/material";
 
+// https://mui.com/components/selects/#multiple-select
+
 const classDays = [
   "Sunday",
   "Monday",
