@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateUserThunk } from "../store/auth";
 import ChangePassword from "../components/ChangePassword";
 
+import Header from "../components/Header";
+
 import {
   Avatar,
   Box,
@@ -34,12 +36,7 @@ const Account = () => {
 
   return (
     <Box>
-      <Box className="center" sx={{ m: 2 }}>
-        <Typography variant="h5" color="primary">
-          account settings
-        </Typography>
-      </Box>
-      <Divider variant="middle" sx={{ backgroundColor: "primary.main" }} />
+      <Header header={"account"} />
       <Box
         sx={{
           display: "flex",
